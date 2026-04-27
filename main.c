@@ -4,7 +4,7 @@
   하 는 일: RPG 형식의 캐릭터 생성 및 보스 잡기 게임 1.0
 */
 #include <stdio.h>
-
+//주석추가 
 int main(){
   char name;
   int job;// 직업(추후 번호가 아니라 직업이름으로 표시할 예정입니다)
