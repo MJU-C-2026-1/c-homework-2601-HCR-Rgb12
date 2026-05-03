@@ -93,6 +93,7 @@
      
 ### **📁 증빙 자료:**
   * [2차_AI협업캡처.pdf 첨부 완료] (첨부 후 링크)
+    https://github.com/MJU-C-2026-1/c-homework-2601-HCR-Rgb12
   * [2차과제_실행결과.jpg]
 <br>
 
