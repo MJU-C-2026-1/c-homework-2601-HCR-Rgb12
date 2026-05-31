@@ -1,7 +1,7 @@
 /* 
   파일이름: main.c
   작 성 자:60232361 류형찬
-  하 는 일: RPG 형식의 캐릭터 생성 및 보스 잡기 게임 2.0
+  하 는 일: RPG 형식의 캐릭터 생성 및 보스 잡기 게임 3.0
 */
 
 #include <stdio.h>
@@ -17,6 +17,7 @@ void print_menu()
   printf("3.보스 레이드\n");
   printf("0.게임 종료\n");
 } 
+
 //전투력 계산 함수
 double output_power(int job,int hp, double ad, double ap)
 {
@@ -36,6 +37,19 @@ double output_power(int job,int hp, double ad, double ap)
       break;
   }
   return power;
+}
+// 현재 스텟 출력 함수
+void status(char name, int job,int level, int hp, double ad,double ap,double power)
+{
+  printf("==========================\n");
+  printf("현재 스텟 상황입니다\n");
+  printf("이름: %c\n" , name);
+  printf("현재 레벨: %d\n",level);
+  printf("체력:%d\n",hp);
+  printf("공격력:%.2f\n",ad);
+  printf("마력:%.2f\n",ap);
+  printf("총 전투력:%.2lf\n",power);
+  printf("==========================\n");
 }
 //전역변수-보스 전투때 사용
 int boss_level = 1;
@@ -104,19 +118,9 @@ int main(){
             break;
         }//직업 선택 및 스텟 설정 끝
         power = output_power(job, hp, ad, ap);//함수 호출
-        printf("\n--- 현재 캐릭터의 스텟 상황입니다 ---\n");
-        printf("이름: %c\n", name);
-        printf("직업(1.전사, 2.마법사, 3.성직자): %d\n", job);
-        printf("현재 레벨: %d\n", level);
-        printf("체력: %d\n", hp);
-        printf("공격력: %.2f\n", ad);
-        printf("마력: %.2f\n", ap);
-        printf("총 전투력: %.2lf\n", power);
-        printf("캐릭터 생성이 완료되었습니다!\n"); 
-        printf("\n");               
-      }
-          break;
-
+        status(name, job, level, hp, ad, ap, power);          
+        break;
+      } 
       case(2):{
         printf("사냥터에 오신 것을 환영합니다!\n");//사냥터를 통한 경험치 획득 및 레벨업 수식
         printf("사냥횟수를 입력하세요:");
@@ -150,6 +154,7 @@ int main(){
         int rise_level = level - first_level;//증가 레벨양
         printf("%d만큼의 경험치를 획득하였습니다\n" , total_gain);
         printf("%d 레벨이 상승하였습니다\n",rise_level);
+        status(name, job, level, hp, ad, ap, power);
         printf("사냥이 종료되었습니다.\n");
 
         
